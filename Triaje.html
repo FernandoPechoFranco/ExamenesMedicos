@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0f766e">
+  <title>MedCare | Triaje</title>
+  <link rel="icon" href="assets/icons/logo.svg">
+  <link rel="stylesheet" href="assets/css/Styles.css">
+</head>
+<body>
+  <div class="page-shell dashboard-shell">
+    <div class="background-orbs" aria-hidden="true">
+      <span class="orb orb-1"></span>
+      <span class="orb orb-2"></span>
+      <span class="orb orb-3"></span>
+    </div>
+
+    <main class="dashboard-layout triage-layout">
+      <header class="dashboard-top">
+        <div class="brand">
+          <img class="brand-mark" src="assets/icons/logo.svg" alt="Logo MedCare">
+          <div>
+            <p class="brand-kicker">Módulo de atención</p>
+            <h1>Triaje</h1>
+          </div>
+        </div>
+
+        <div class="logout-stack">
+          <a class="logout-btn" href="Dashboard.html">Volver al dashboard</a>
+          <a class="logout-btn" href="Index.html">Cerrar sesión</a>
+        </div>
+      </header>
+
+      <section class="dashboard-card dashboard-intro">
+        <p class="section-label">Ingreso del paciente</p>
+        <h2>Registro clínico de triaje</h2>
+        <p>
+          El doctor anota los datos más comunes del triaje y luego exporta el reporte en PDF o impresión.
+        </p>
+      </section>
+
+      <section class="dashboard-card triage-form-card">
+        <div class="triage-head">
+          <div>
+            <p class="section-label">Datos del paciente</p>
+            <h2>Formulario de evaluación</h2>
+          </div>
+          <p class="triage-note">Completa los valores y luego exporta el informe</p>
+        </div>
+
+        <form id="triageForm" class="triage-form">
+          <div class="triage-grid">
+            <label class="field">
+              <span>Nombre del paciente</span>
+              <div class="input-wrap">
+                <input type="text" name="patientName" placeholder="Ej. Juan Pérez" required>
+              </div>
+            </label>
+
+            <label class="field">
+              <span>Fecha</span>
+              <div class="input-wrap">
+                <input type="date" name="date" required>
+              </div>
+            </label>
+
+            <label class="field">
+              <span>Edad</span>
+              <div class="input-wrap">
+                <input type="number" name="age" min="0" max="120" placeholder="Ej. 35" required>
+              </div>
+            </label>
+
+            <label class="field">
+              <span>Prioridad</span>
+              <div class="input-wrap">
+                <input type="text" name="priority" placeholder="Ej. Amarilla" required>
+              </div>
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Motivo de consulta</span>
+            <div class="input-wrap">
+              <input type="text" name="reason" placeholder="Ej. Dolor de pecho y mareos" required>
+            </div>
+          </label>
+
+          <div class="triage-table-wrap">
+            <table class="triage-table">
+              <thead>
+                <tr>
+                  <th>Dato</th>
+                  <th>Valor del doctor</th>
+                  <th>Valor normal</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Frecuencia cardiaca</td>
+                  <td><input type="text" name="heartRate" placeholder="Ej. 130"></td>
+                  <td>90 a 100</td>
+                </tr>
+                <tr>
+                  <td>Presión arterial</td>
+                  <td><input type="text" name="bloodPressure" placeholder="Ej. 140/90"></td>
+                  <td>120/80</td>
+                </tr>
+                <tr>
+                  <td>Temperatura</td>
+                  <td><input type="text" name="temperature" placeholder="Ej. 38.5 °C"></td>
+                  <td>36.5 a 37.5 °C</td>
+                </tr>
+                <tr>
+                  <td>Saturación O2</td>
+                  <td><input type="text" name="oxygen" placeholder="Ej. 92%"></td>
+                  <td>95% a 100%</td>
+                </tr>
+                <tr>
+                  <td>Frecuencia respiratoria</td>
+                  <td><input type="text" name="respiratoryRate" placeholder="Ej. 24"></td>
+                  <td>12 a 20</td>
+                </tr>
+                <tr>
+                  <td>Glucosa</td>
+                  <td><input type="text" name="glucose" placeholder="Ej. 180 mg/dl"></td>
+                  <td>70 a 100 mg/dl</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <label class="field">
+            <span>Observaciones</span>
+            <div class="input-wrap triage-textarea">
+              <textarea name="notes" rows="4" placeholder="Detalles adicionales del triaje..."></textarea>
+            </div>
+          </label>
+
+          <div class="triage-actions">
+            <button class="btn-primary" type="button" id="exportBtn">Exportar informe</button>
+            <button class="btn-secondary" type="button" id="previewBtn">Ver ejemplo</button>
+          </div>
+        </form>
+      </section>
+
+    </main>
+  </div>
+
+  <div class="report-modal" id="reportModal" aria-hidden="true">
+    <div class="report-backdrop" data-close-modal></div>
+    <div class="report-sheet">
+      <div class="report-toolbar">
+        <strong>Vista previa del informe</strong>
+        <button type="button" class="modal-close" data-close-modal>Cerrar</button>
+      </div>
+      <div class="report-page" id="reportPreview">
+        <div class="report-header">
+          <img src="assets/icons/logo.svg" alt="Logo MedCare">
+          <div>
+            <h3>Triaje</h3>
+            <p id="reportDate">Fecha: --/--/----</p>
+          </div>
+        </div>
+        <div class="report-meta">
+          <div>
+            <span>Paciente</span>
+            <strong id="reportPatient">--</strong>
+          </div>
+          <div>
+            <span>Edad</span>
+            <strong id="reportAge">--</strong>
+          </div>
+          <div>
+            <span>Prioridad</span>
+            <strong id="reportPriority">--</strong>
+          </div>
+        </div>
+        <div class="report-reason">
+          <span>Motivo de consulta</span>
+          <p id="reportReason">--</p>
+        </div>
+        <table class="report-table">
+          <thead>
+            <tr>
+              <th>Dato</th>
+              <th>Valor doctor</th>
+              <th>Valor normal</th>
+            </tr>
+          </thead>
+          <tbody id="reportBody"></tbody>
+        </table>
+        <div class="report-notes">
+          <span>Observaciones</span>
+          <p id="reportNotes">--</p>
+        </div>
+      </div>
+      <div class="report-actions">
+        <button type="button" class="btn-secondary" id="printBtn">Imprimir / Guardar PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/JavaScrip.js"></script>
+</body>
+</html>

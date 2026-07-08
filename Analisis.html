@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0f766e">
+  <title>MedCare | Análisis de sangre</title>
+  <link rel="icon" href="assets/icons/logo.svg">
+  <link rel="stylesheet" href="assets/css/Styles.css">
+</head>
+<body>
+  <div class="page-shell dashboard-shell">
+    <div class="background-orbs" aria-hidden="true">
+      <span class="orb orb-1"></span>
+      <span class="orb orb-2"></span>
+      <span class="orb orb-3"></span>
+    </div>
+
+    <main class="dashboard-layout triage-layout">
+      <header class="dashboard-top">
+        <div class="brand">
+          <img class="brand-mark" src="assets/icons/logo.svg" alt="Logo MedCare">
+          <div>
+            <p class="brand-kicker">Módulo de laboratorio</p>
+            <h1>Análisis de sangre</h1>
+          </div>
+        </div>
+
+        <div class="logout-stack">
+          <a class="logout-btn" href="Dashboard.html">Volver al dashboard</a>
+          <a class="logout-btn" href="Index.html">Cerrar sesión</a>
+        </div>
+      </header>
+
+      <section class="dashboard-card dashboard-intro">
+        <p class="section-label">Resultados clínicos</p>
+        <h2>Control y registro de análisis</h2>
+        <p>
+          Desde aquí puedes revisar hemogramas, bioquímica y otros estudios de laboratorio.
+        </p>
+      </section>
+
+      <section class="dashboard-card triage-form-card">
+        <div class="triage-head">
+          <div>
+            <p class="section-label">Paciente</p>
+            <h2>Formulario de análisis de sangre</h2>
+          </div>
+          <p class="triage-note">Espacio para registrar resultados y observaciones del laboratorio</p>
+        </div>
+
+        <div class="triage-grid">
+          <label class="field">
+            <span>Nombre del paciente</span>
+            <div class="input-wrap">
+              <input type="text" placeholder="Ej. Juan Pérez">
+            </div>
+          </label>
+          <label class="field">
+            <span>Fecha</span>
+            <div class="input-wrap">
+              <input type="date">
+            </div>
+          </label>
+        </div>
+
+        <div class="triage-table-wrap">
+          <table class="triage-table">
+            <thead>
+              <tr>
+                <th>Examen</th>
+                <th>Resultado</th>
+                <th>Valor normal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Hemoglobina</td>
+                <td><input type="text" placeholder="Ej. 13.2 g/dl"></td>
+                <td>12 a 16 g/dl</td>
+              </tr>
+              <tr>
+                <td>Leucocitos</td>
+                <td><input type="text" placeholder="Ej. 8,500"></td>
+                <td>4,000 a 11,000</td>
+              </tr>
+              <tr>
+                <td>Glucosa</td>
+                <td><input type="text" placeholder="Ej. 95 mg/dl"></td>
+                <td>70 a 100 mg/dl</td>
+              </tr>
+              <tr>
+                <td>Plaquetas</td>
+                <td><input type="text" placeholder="Ej. 240,000"></td>
+                <td>150,000 a 450,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <label class="field">
+          <span>Observaciones</span>
+          <div class="input-wrap triage-textarea">
+            <textarea rows="4" placeholder="Notas adicionales del laboratorio..."></textarea>
+          </div>
+        </label>
+
+        <div class="triage-actions">
+          <button class="btn-primary" type="button">Exportar informe</button>
+          <button class="btn-secondary" type="button">Ver ejemplo</button>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
