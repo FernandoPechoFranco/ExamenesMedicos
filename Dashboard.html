@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0f766e">
+  <title>MedCare | Dashboard</title>
+  <link rel="stylesheet" href="assets/css/Styles.css">
+  <style>
+    .dash-shell {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .dash-card {
+      width: min(720px, 100%);
+      padding: 32px;
+      border-radius: 28px;
+      background: rgba(8, 24, 32, 0.78);
+      border: 1px solid rgba(153, 243, 230, 0.16);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(18px);
+      animation: popIn 0.7s ease both;
+    }
+
+    .dash-title {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    .dash-text {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+  <main class="dash-shell">
+    <section class="dash-card">
+      <p class="section-label">Acceso correcto</p>
+      <h1 class="dash-title">Bienvenido al panel médico</h1>
+      <p class="dash-text">
+        Aquí puedes construir después tus módulos de pacientes, citas, resultados y reportes.
+      </p>
+    </section>
+  </main>
+</body>
+</html>
