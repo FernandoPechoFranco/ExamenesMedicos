@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="Triaje">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f7fffe"/>
+      <stop offset="100%" stop-color="#d8f6f1"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1bb9a8"/>
+      <stop offset="100%" stop-color="#7cf0dc"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" rx="64" fill="url(#bg)"/>
+  <circle cx="462" cy="126" r="118" fill="#19b7a7" fill-opacity="0.14"/>
+  <circle cx="132" cy="470" r="152" fill="#ffcf70" fill-opacity="0.12"/>
+  <rect x="138" y="138" width="324" height="324" rx="54" fill="#ffffff" fill-opacity="0.75" stroke="#1bb9a8" stroke-opacity="0.18" stroke-width="6"/>
+  <circle cx="300" cy="300" r="96" fill="#0f766e" fill-opacity="0.09"/>
+  <path d="M300 216v168M216 300h168" stroke="url(#panel)" stroke-width="38" stroke-linecap="round"/>
+  <path d="M186 420c36-30 76-46 114-46s78 16 114 46" fill="none" stroke="#0f766e" stroke-opacity="0.28" stroke-width="18" stroke-linecap="round"/>
+  <path d="M206 192h188" stroke="#0f766e" stroke-opacity="0.12" stroke-width="10" stroke-linecap="round"/>
+</svg>

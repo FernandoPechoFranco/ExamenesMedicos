@@ -7,46 +7,56 @@
   <title>MedCare | Dashboard</title>
   <link rel="icon" href="assets/icons/logo.svg">
   <link rel="stylesheet" href="assets/css/Styles.css">
-  <style>
-    .dash-shell {
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      padding: 24px;
-    }
-
-    .dash-card {
-      width: min(720px, 100%);
-      padding: 32px;
-      border-radius: 28px;
-      background: rgba(8, 24, 32, 0.78);
-      border: 1px solid rgba(153, 243, 230, 0.16);
-      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
-      backdrop-filter: blur(18px);
-      animation: popIn 0.7s ease both;
-    }
-
-    .dash-title {
-      margin: 0 0 10px;
-      font-size: clamp(2rem, 4vw, 3rem);
-    }
-
-    .dash-text {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-  </style>
 </head>
 <body>
-  <main class="dash-shell">
-    <section class="dash-card">
-      <p class="section-label">Acceso correcto</p>
-      <h1 class="dash-title">Bienvenido al panel médico</h1>
-      <p class="dash-text">
-        Aquí puedes construir después tus módulos de pacientes, citas, resultados y reportes.
-      </p>
-    </section>
-  </main>
+  <div class="page-shell dashboard-shell">
+    <div class="background-orbs" aria-hidden="true">
+      <span class="orb orb-1"></span>
+      <span class="orb orb-2"></span>
+      <span class="orb orb-3"></span>
+    </div>
+
+    <main class="dashboard-layout">
+      <header class="dashboard-top">
+        <div class="brand">
+          <img class="brand-mark" src="assets/icons/logo.svg" alt="Logo MedCare">
+          <div>
+            <p class="brand-kicker">Panel principal</p>
+            <h1>MedCare</h1>
+          </div>
+        </div>
+
+        <a class="logout-btn" href="Index.html">Cerrar sesión</a>
+      </header>
+
+      <section class="dashboard-card dashboard-intro">
+        <p class="section-label">Bienvenido</p>
+        <h2>Selecciona el módulo que deseas abrir</h2>
+        <p>
+          Desde aquí puedes entrar a triaje o a análisis de laboratorio con un solo clic.
+        </p>
+      </section>
+
+      <section class="dashboard-grid">
+        <a class="service-card" href="#" role="button">
+          <img src="assets/img/triaje.svg" alt="Triaje">
+          <div class="service-copy">
+            <p class="service-kicker">Módulo 01</p>
+            <h3>Triaje</h3>
+            <span>Evaluación inicial del paciente</span>
+          </div>
+        </a>
+
+        <a class="service-card" href="#" role="button">
+          <img src="assets/img/laboratorio.svg" alt="Análisis de laboratorio">
+          <div class="service-copy">
+            <p class="service-kicker">Módulo 02</p>
+            <h3>Análisis de laboratorio</h3>
+            <span>Resultados y estudios clínicos</span>
+          </div>
+        </a>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
